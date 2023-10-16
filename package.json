@@ -1,0 +1,21 @@
+{
+  "name": "com.iron-mountain.audio-utilities",
+  "version": "1.0.0",
+  "displayName": "Audio Utilities",
+  "description": "A library of tools and components that work with Unity's audio system.",
+  "unity": "2019.1",
+  "keywords": [
+    "tools"
+  ],
+  "author": "Chris Monteferrante <ludachrismonte@gmail.com>",
+  "type": "tool",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iron-Mountain-Software/audio-utilities.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Iron-Mountain-Software/audio-utilities/issues"
+  },
+  "homepage": "https://github.com/Iron-Mountain-Software/audio-utilities#readme"
+}

@@ -1,0 +1,14 @@
+{
+    "name": "com.iron-mountain.audio-utilities",
+    "rootNamespace": "IronMountain.AudioUtilities",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
