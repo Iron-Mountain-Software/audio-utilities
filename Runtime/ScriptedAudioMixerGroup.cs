@@ -9,16 +9,22 @@ namespace IronMountain.AudioUtilities
     {
         public event Action OnVolumeChanged;
         
-        public const float MinimumVolume = -80f;
-        public const float MaximumVolume = 20f;
+        public const float AbsoluteMinimumVolume = -80f;
+        public const float AbsoluteMaximumVolume = 20f;
         
         [SerializeField] private AudioMixer audioMixer;
+        [SerializeField] [Range(AbsoluteMinimumVolume, AbsoluteMaximumVolume)] private float minimumVolume = -20;
+        [SerializeField] [Range(AbsoluteMinimumVolume, AbsoluteMaximumVolume)] private float maximumVolume = 10;
+        [SerializeField] [Range(AbsoluteMinimumVolume, AbsoluteMaximumVolume)] private float defaultVolume = 0;
         [SerializeField] private string playerPrefsKey = "Audio Mixer Group Volume";
         [SerializeField] private string volumePropertyName = "Volume";
+
+        public float MinimumVolume => minimumVolume;
+        public float MaximumVolume => maximumVolume;
         
         public float Volume
         {
-            get => PlayerPrefs.GetFloat(playerPrefsKey, 0);
+            get => PlayerPrefs.GetFloat(playerPrefsKey, defaultVolume);
             set
             {
                 value = Mathf.Clamp(value, MinimumVolume, MaximumVolume);
@@ -42,12 +48,15 @@ namespace IronMountain.AudioUtilities
         private void OnValidate()
         {
             RefreshAudioMixer();
+            minimumVolume = Mathf.Clamp(minimumVolume, AbsoluteMinimumVolume, AbsoluteMaximumVolume);
+            maximumVolume = Mathf.Clamp(maximumVolume, minimumVolume, AbsoluteMaximumVolume);
+            defaultVolume = Mathf.Clamp(defaultVolume, minimumVolume, maximumVolume);
         }
         
         public void RefreshAudioMixer()
         {
             if (!audioMixer) return;
-            float volume = GloballyMutedManager.GloballyMuted ? MinimumVolume : Volume;
+            float volume = GloballyMutedManager.GloballyMuted ? AbsoluteMinimumVolume : Volume;
             audioMixer.SetFloat(volumePropertyName, volume);
         }
     }

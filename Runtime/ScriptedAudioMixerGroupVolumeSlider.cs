@@ -35,9 +35,18 @@ namespace IronMountain.AudioUtilities
         private void RefreshSlider()
         {
             if (!slider) return;
-            slider.minValue = ScriptedAudioMixerGroup.MinimumVolume;
-            slider.maxValue = ScriptedAudioMixerGroup.MaximumVolume;
-            slider.value = mixerGroup ? mixerGroup.Volume : 0;
+            if (mixerGroup)
+            {
+                slider.minValue = mixerGroup.MinimumVolume;
+                slider.maxValue = mixerGroup.MaximumVolume;
+                slider.value = mixerGroup.Volume;
+            }
+            else
+            {
+                slider.minValue = ScriptedAudioMixerGroup.AbsoluteMinimumVolume;
+                slider.maxValue = ScriptedAudioMixerGroup.AbsoluteMaximumVolume;
+                slider.value = 0f;
+            }
         }
 
         private void OnValueChanged(float value)
