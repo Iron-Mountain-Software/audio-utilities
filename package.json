@@ -1,6 +1,6 @@
 {
   "name": "com.iron-mountain.audio-utilities",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "Audio Utilities",
   "author": "Chris Monteferrante <ludachrismonte@gmail.com>",
   "unity": "2019.1",
@@ -21,6 +21,19 @@
   "keywords": [
     "tools"
   ],
-  "sources": [],
+  "sources": [
+    {
+      "type": "itch.io",
+      "url": "https://iron-mountain.itch.io/audio-utilities"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/Iron-Mountain-Software/audio-utilities.git"
+    },
+    {
+      "type": "npm",
+      "url": "https://www.npmjs.com/package/com.iron-mountain.audio-utilities"
+    }
+  ],
   "dependencies": {}
 }
